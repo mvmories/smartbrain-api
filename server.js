@@ -22,12 +22,12 @@ const db = knex({
 app.use(express.json());
 app.use(cors());
 
+// GET USERS
+app.get('/', (req, res) => {res.send('it is working!')})
 // SIGN-IN
 app.post('/signin', (req, res)=> { signin.handleSignin(req, res, db, bcrypt) })
 // REGISTER
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
-// GET USERS
-app.get('/', (req, res) => {res.send(database.users)})
 // GET USER:id
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) })
 // ENTRIES UPDATE
